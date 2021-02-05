@@ -60,7 +60,7 @@ class BASS(object):
         N_predict = [0]
         A_predict = [0]
         
-        for i in range(1,len(periods)+1):
+        for i in range(1,len(periods)):
             Rt = m - A_predict[i-1]
             A0 = 0
             Ht = p + q * (A_predict[i-1]/m)
@@ -70,10 +70,7 @@ class BASS(object):
                 A0 += N_predict[n]
             A_predict.append(A0)
         
-        N_predict.pop(0)
-        A_predict.pop(0)
-        
-        dbass = pd.DataFrame({"Time":periods,"N(t)":N_predict,"A(t)":A_predict})
+        dbass = pd.DataFrame({"Time":periods,"N(t-1)":N_predict,"A(t-1)":A_predict})
         
         return dbass
     
@@ -85,46 +82,45 @@ class BASS(object):
         rep = int(input("pls input the frequency of the repeat purchase: "))
         periods = np.linspace(1,t,t,dtype=int)
     
-        N_predict = [0]
-        A_predict = [0]
+        Nt = []
+        At = []
         
-        for i in range(1,len(periods)+1):
-            Rt = m - A_predict[i-1]
-            A0 = 0
-            Ht = p + q * (A_predict[i-1]/m)
-            Nt = Ht * Rt
-            N_predict.append(Nt)
-            for n in range(len(N_predict)):
-                A0 += N_predict[n]
-            A_predict.append(A0)
-        
-        N_predict.pop(0)
-        A_predict.pop(0)
+        # Continuous Bass Model
+        for i in range(1,int(t)+1,1):
+            A_t1 = m * (1-np.exp(-(p+q)*(i-1)))/(1+(q/p)*(np.exp(-(p+q)*(i-1))))
+            A_t = m * (1-np.exp(-(p+q)*i))/(1+(q/p)*(np.exp(-(p+q)*i)))
+            N_t = A_t - A_t1
+            At.append(A_t)
+            Nt.append(N_t)
         
         Sales_pred = []
         
-        for i in range(1,len(N_predict)+1,1):
-            s_count = 0
-            if i < rep+1:
-                Sales_pred.append(N_predict[i-1])
+        for row in range(1,len(Nt)+1,1):
+            if row < rep+1:
+                Sales_pred.append(Nt[row-1])
             else:
-                seq_len = (int(i/rep) - 1)*rep+(i%rep)
-                seq_count = 0
-                for j in range(seq_len):
-                    seq_count += N_predict[j]
-                s_count = N_predict[i-1] + seq_count
+                s_count = 0
+                rd = int(row/rep)
+                for r in range(rd): 
+                    idx = (int(row/rep) - 1)*rep+(row%rep)
+                    s_count += Nt[row-1]
+                    s_count += Nt[idx-1]
+                    row -= rep
+                
                 Sales_pred.append(s_count)
                 
         rbass = pd.DataFrame({
-            "Time":periods,"N(t)":N_predict,"A(t)":A_predict,"Sales":Sales_pred})
+            "Time":periods,"N(t)":Nt,"A(t)":At,"Sales":Sales_pred})
         
         return rbass
 
 
 # test the accuracy
 # if __name__ == '__main__':
-#     result = BASS(p=0.0058480419267518124,q=0.05749225793093697,m=23308450.26524349,period=48)
+#     result = BASS(p=0.00645,q=0.058974,m=22433724,period=400)
 #     result.continuous()
+#     result.discrete()
+#     result.repeat()
     
     
 
