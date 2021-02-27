@@ -41,7 +41,7 @@ class MaoyanSpider(object):
     # save your data into csv file
     def write_page(self,r_list):
         film_list = []
-        with open('maoyan.csv','a',newline='') as f:
+        with open('maoyan.csv','a',newline='',encoding='utf-8') as f:
             writer = csv.writer(f)
             for r in r_list:
                 t = (r[0].strip(), r[1].strip(), r[2].strip()[5:15])
