@@ -17,6 +17,8 @@ Case 3: Bass Model
     Step 3: dataframe = BASS(p,q,m,period=30)
 
     Step 4: dataframe.continuous() # you also can output discrete or repeat purchase result
+    
+Case 4: Bayesian Optimization on XGBoost---> predicting listed companies' credits
 
 
 
