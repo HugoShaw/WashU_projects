@@ -20,6 +20,8 @@ Case 3: Bass Model
     
 Case 4: Bayesian Optimization on XGBoost---> predicting listed companies' credits
 
+Case 5: 2021 Meituan Business Analytics Elites Competition Project -----> crawling data by selenium, data cleaning, predictive analytics by machine learning (sci-kit learn), NLP Sentiment Analysis, World-Cloud Pictures, Bayesian Optimization-Xgboost*
+
 
 
 
