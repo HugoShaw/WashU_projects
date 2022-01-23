@@ -22,6 +22,8 @@ Case 4: Bayesian Optimization on XGBoost---> predicting listed companies' credit
 
 Case 5: 2021 Meituan Business Analytics Elites Competition Project -----> crawling data by selenium, data cleaning, predictive analytics by machine learning (sci-kit learn), NLP Sentiment Analysis, World-Cloud Pictures, Bayesian Optimization-Xgboost*
 
+Case 6: 
+
 
 
 
