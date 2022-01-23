@@ -26,6 +26,8 @@ Case 6. Kaggle Competition: use Tensorflow, Keras, & Scikit-learn to deploy deep
 
 Case 7. Birthday Card: use html & css to write a birthday card for my girl - Mango, who is 24-year-old.
 
+Case 8. AB-InBev data analytics: construct a text mining optimization model and classical machine learning models to improve current models' accuracy rate (f1-score) and lower false-positive cases.
+
 
 
 
