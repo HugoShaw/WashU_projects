@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Author" content="Hugo">
+    <title>Happy Birthday Card</title>
+    <!-- use a separate stylesheet and link my HTML file to it -->
+    <link rel="stylesheet" type="text/css" href="birthday.css"/>
+</head>
+<body>
+    <!-- since marquee element is depreciated on html5 so I change it into element p and use css to decorate it -->
+    <p class="marquee">
+        <span id="floating1">Mango Mango Mango 25 25 25!</span>
+    </p>
+    <p class="marquee">
+        <span id="floating2">I Love You Mango</span>
+    </p>
+    <p class="marquee">
+        <span id="floating3">Stay Young Forever!</span>
+    </p>
+    <p class="marquee">
+        <span id="floating4">My Little Princess, Mango</span>
+    </p>
+    <p class="marquee">
+        <span id="floating5">Love You, Your Leo!</span>
+    </p>
+    <p class="marquee">
+        <span id="floating6">Hugo & Mango</span>
+    </p>
+    
+    <div class='box'>
+        <p>
+            <img src='pic3.jpg' alt='element1'> 
+        </p>
+        <p>
+            <audio controls autoplay loop id='a1'>
+                <source src="song.mp3" type="audio/mpeg"/>
+            </audio>
+        </p>
+
+        <h1>Happy Birthday</h1>
+        <h2>TO: Lovely Mango!</h2>
+        <h3>
+            from hugo
+            <span style='font-size:50px;'> &#129409;</span>
+        </h3>   
+        
+        <div id="textpalyer">
+            <!-- <textarea id='showmsg' disabled></textarea><br/> -->
+            <textarea id="showmsg"></textarea><br/>
+            <input id='msg' type="text" name="wishes" class="txt" placeholder="pls enter your best wishes to her"/>
+            <input type="submit" class='but' value="submit" onclick="showtext()">
+        </div>
+
+    </div>
+
+    <script>
+        function showtext(){
+            var msg=document.getElementById("msg").value;
+            var showmsg=document.getElementById("showmsg");
+            showmsg.value=msg;
+        }
+    </script>
+</body>
+
+</html>

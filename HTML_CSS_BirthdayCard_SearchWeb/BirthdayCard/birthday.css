@@ -1,0 +1,133 @@
+/* author: hugo
+contact: hugo@wustl.edu 
+Requirements: Experimenting with at least 5 different CSS properties in your birthday card
+1. margin
+2. padding
+3. animation
+4. background image
+5. background color
+6. text-align
+7. width
+8. height
+9. font-size
+10. border
+11. color
+*/
+body {
+    margin: 0 0;
+    padding: 25px;
+    /* background-image: linear-gradient(to bottom right, darkgray, black, black, black, darkgray);  */
+    animation: bgcolor 10s linear infinite;
+}
+@keyframes bgcolor {
+    0%{
+        background-image: linear-gradient(to bottom right, darkgray, black, black, black, darkgray);
+    }
+    50%{
+        background-image: linear-gradient(to bottom right, rgb(186, 231, 248), rgb(91, 181, 223), rgb(43, 163, 211), rgb(155, 195, 241), rgb(182, 201, 235));
+    }
+    100%{
+        background-image: linear-gradient(to bottom right, #b1e7e0, #98faed, #5ef3df, #9eece2, #c4f7f0);
+    }
+}
+p {
+    text-align: center;
+    margin:5px auto;
+}
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.box {
+    width: 700px;
+    height: 700px;
+    margin: 100px auto;
+    padding: 200px;
+    border: 5px solid rgb(194, 158, 41);
+}
+h1 {color: rgb(211, 154, 30);
+    text-align: center;
+    font-size: 100px;
+    font:oblique;
+}
+h2 {color:rgb(211, 154, 30);
+    text-align: center;
+    font-size: 50px;
+    text-decoration: underline;
+}
+h3 {color: rgb(211, 154, 30);
+    text-align:center;
+    font-size: 30px;
+}
+#msg {
+    width: 700px;
+    height: 50px;
+    background: unset;
+    border: 1px solid white;
+}
+#showmsg {
+    width: 700px;
+    height: 50px;
+    border: 3px solid goldenrod;
+    font-size: 30px;
+    background: unset;
+}
+.marquee {
+    width: 1200px;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+}
+#floating1 {
+    font-size: 50px;
+    color:tomato;
+    display: inline-block;
+    padding-left: 100%;
+    text-indent: 0;
+    animation: mrq 3s linear infinite normal;
+}
+#floating2 {
+    font-size: 40px;
+    color:blueviolet;
+    display: inline-block;
+    padding-left: 100%;
+    text-indent: 0;
+    animation: mrq 15s linear infinite reverse;
+}
+#floating3 {
+    font-size: 45px;
+    color:brown;
+    display: inline-block;
+    padding-left: 100%;
+    text-indent: 0;
+    animation: mrq 20s linear infinite alternate;
+}
+#floating4 {
+    font-size: 30px;
+    color:black;
+    display: inline-block;
+    padding-left: 100%;
+    text-indent: 0;
+    animation: mrq 10s linear infinite alternate;
+}
+#floating5 {
+    font-size: 25px;
+    color:cadetblue;
+    display: inline-block;
+    padding-left: 100%;
+    text-indent: 0;
+    animation: mrq 5s linear infinite alternate-reverse;
+}
+#floating6 {
+    font-size: 60px;
+    color:orangered;
+    display: inline-block;
+    padding-left: 100%;
+    text-indent: 0;
+    animation: mrq 15s linear infinite reverse;
+}
+@keyframes mrq {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
